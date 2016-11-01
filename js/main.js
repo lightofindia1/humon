@@ -17,6 +17,7 @@ $(document).ready(function(){
 	}
 	$(".start-btn").click(function(){
 		$(".start-btn").fadeOut(10);
+		$("#humon").focus();
 		Game();
 	});
 	function Game(){
@@ -71,6 +72,7 @@ $(document).ready(function(){
 	engine;
 	var key = 'HUMON';
 	var ukey = '';
+	var display_key = '';
 	var origin=[250,250];
 	var radius=200;
 	var deg=Math.PI;
@@ -102,7 +104,7 @@ $(document).ready(function(){
 		var time_display=String(time_text);
 		var time_display_width=ctx.measureText(time_display).width;
 		ctx.fillText(String(time_text),(canvas.width/2) - (time_display_width / 2),250);
-		$(document).keydown(function(e) {
+		$("#humon").keydown(function(e) {
 			if(!completed){
 				if(e.which>64 && e.which<91){
 					if(ukey.length<key.length){
@@ -111,6 +113,10 @@ $(document).ready(function(){
 						{
 							console.log(ukey);
 							deg+=0.1;
+							ukey='';
+						}
+						if((ukey.length==key.length)&&(ukey!=key)){
+							deg=check_point;
 							ukey='';
 						}
 					}
@@ -129,6 +135,16 @@ $(document).ready(function(){
 					}
 				}
 				else if(e.which==13){deg+=0.1;}
+				display_key='';
+				for (i=0;i<ukey.length;i++)
+				{
+					display_key+=ukey[i]+' ';
+				}
+				for (i=0;i<(key.length-ukey.length);i++)
+				{
+					display_key+="- ";
+				}
+				$("#humon").val(display_key);
 				if(deg>=(check_point+2*Math.PI/3)){
 					check_point=check_point+2*Math.PI/3;
 					zone+=1;

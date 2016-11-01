@@ -28,13 +28,23 @@
 	outline:none;
 	font:42px roboto,sans-serif;
 }
+input{
+	width:400px;
+	height:80px;
+	position:absolute;
+	top:520px;
+	left:calc(50% - 200px);
+	font-size:72px;
+	text-align:center;
+}
 </style>
 </head>
 <body>
 <img src="img/run.png" id="runner" class="player">
 <img src="img/swim.png" id="swim" class="player">
 <img src="img/cycle.png" id="cycle" class="player">
-<canvas id="playground" width="500px" height="500px"></canvas><button class="start-btn">START</button>
+<canvas id="playground" width="500px" height="500px"></canvas><button class="start-btn">START</button><br>
+<input type="text" id="humon" value="" placeholder="-----">
 </body>
 <script src="js/libs.js"></script>
 <script src="js/main.js"></script>
