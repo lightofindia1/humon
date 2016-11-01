@@ -196,7 +196,7 @@ $(document).ready(function(){
 		});
 	}
 	else {
-		alert("Canvas Not Supported!");
+		alert("Canvas Not Supported! ");
 	}
 	}
 });
