@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Humon</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+.player{
+	width:100px;
+	height:100px;
+	display:none;
+}
+#playground{
+	position:absolute;
+	top:10px;
+	left:calc(50% - 250px);
+}
+.start-btn{
+	width:200px;
+	height:100px;
+	position:absolute;
+	top:410px;
+	left:calc(50% - 100px);
+	color:#fff;
+	background:red;
+	border:none;
+	border-radius:10px;
+	cursor:pointer;
+	outline:none;
+	font:42px roboto,sans-serif;
+}
+</style>
+</head>
+<body>
+<img src="img/run.png" id="runner" class="player">
+<img src="img/swim.png" id="swim" class="player">
+<img src="img/cycle.png" id="cycle" class="player">
+<canvas id="playground" width="500px" height="500px"></canvas><button class="start-btn">START</button>
+</body>
+<script src="js/libs.js"></script>
+<script src="js/main.js"></script>
+</html>
+
