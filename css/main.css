@@ -1,24 +1,34 @@
+
 .player{
-    width:100px;
-    height:100px;
-    display:none;
+	width:100px;
+	height:100px;
+	display:none;
 }
 #playground{
-    position:absolute;
-    top:10px;
-    left:calc(50% - 250px);
+	position:absolute;
+	top:10px;
+	left:calc(50% - 250px);
 }
 .start-btn{
-    width:200px;
-    height:100px;
-    position:absolute;
-    top:410px;
-    left:calc(50% - 100px);
-    color:#fff;
-    background:red;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-    outline:none;
-    font:42px roboto,sans-serif;
+	width:200px;
+	height:100px;
+	position:absolute;
+	top:410px;
+	left:calc(50% - 100px);
+	color:#fff;
+	background:red;
+	border:none;
+	border-radius:10px;
+	cursor:pointer;
+	outline:none;
+	font:42px roboto,sans-serif;
+}
+input{
+	width:400px;
+	height:80px;
+	position:absolute;
+	top:520px;
+	left:calc(50% - 200px);
+	font-size:72px;
+	text-align:center;
 }

@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	var game_start=0;
 	var canvas = document.getElementById('playground');
 	if (canvas.getContext){
 		var ctx = canvas.getContext('2d');
@@ -15,10 +16,19 @@ $(document).ready(function(){
 	{
 		alert("Canvas Not Supported!");
 	}
-	$(".start-btn").click(function(){
+	function StartGame(){
+		game_start=1;
 		$(".start-btn").fadeOut(10);
 		$("#humon").focus();
 		Game();
+	}
+	$(".start-btn").click(StartGame);
+	$(document).keyup(function(e){
+		if(!game_start){
+			if(e.which==72){
+				StartGame();
+			}
+		}
 	});
 	function Game(){
 	var StartTime = new Date().getTime();
@@ -82,6 +92,7 @@ $(document).ready(function(){
 	var check_points=[Math.PI+2*Math.PI/3,Math.PI+4*Math.PI/3];
 	var zone=1;
 	var runner = document.getElementById("runner");
+	var flag = document.getElementById("flag");
 	if (canvas.getContext){
 		var ctx = canvas.getContext('2d');
 		ctx.clearRect(0, 0, 1200, 1000);
@@ -98,6 +109,7 @@ $(document).ready(function(){
 		ctx.fillStyle='green';
 		ctx.fill();
 		ctx.stroke();
+		ctx.drawImage(flag, 245, 0,50,50);
 		ctx.drawImage(runner, x, y,100,100);
 		ctx.clearRect(120, 200, 200, 100);
 		ctx.font="42px Verdana";
@@ -112,7 +124,7 @@ $(document).ready(function(){
 						if (ukey==key)
 						{
 							console.log(ukey);
-							deg+=0.1;
+							deg+=0.4;
 							ukey='';
 						}
 						if((ukey.length==key.length)&&(ukey!=key)){
@@ -125,7 +137,7 @@ $(document).ready(function(){
 						console.log(ukey);
 						if (ukey==key)
 						{
-							deg+=0.1;
+							deg+=0.4;
 						}
 						else
 						{
@@ -134,7 +146,7 @@ $(document).ready(function(){
 						ukey='';
 					}
 				}
-				else if(e.which==13){deg+=0.1;}
+				else if(e.which==13){deg+=0.4;}
 				display_key='';
 				for (i=0;i<ukey.length;i++)
 				{
@@ -178,6 +190,7 @@ $(document).ready(function(){
 				ctx.fillStyle='green';
 				ctx.fill();
 				ctx.stroke();
+				ctx.drawImage(flag, 245, 0,50,50);
 				x=origin[0]+Math.sin(deg)*radius-50;
 				y=origin[1]+Math.cos(deg)*radius-50;
 					ctx.save();
@@ -188,6 +201,12 @@ $(document).ready(function(){
 				//ctx.drawImage(runner, x, y,100,100);
 				ctx.clearRect(120, 200, 200, 100);
 				ctx.font="42px Verdana";
+				if(completed){
+					ctx.font="60px Verdana";
+					ctx.fillStyle='red';
+					var endmsg="Finished";
+					ctx.fillText(endmsg,(canvas.width/2) - (ctx.measureText(endmsg).width/2),320);
+				}
 				var time_display=String(time_text);
 				var time_display_width=ctx.measureText(time_display).width;
 				ctx.fillText(String(time_text),(canvas.width/2) - (time_display_width / 2),250);
