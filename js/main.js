@@ -127,7 +127,7 @@ $(document).ready(function(){
 							deg+=0.4;
 							ukey='';
 						}
-						if((ukey.length==key.length)&&(ukey!=key)){
+						if((ukey.length>1)&&(ukey!=key.substring(0,ukey.length))){
 							deg=check_point;
 							ukey='';
 						}
