@@ -91,7 +91,7 @@ $(document).ready(function(){
 	var check_point=Math.PI;
 	var check_points=[Math.PI+2*Math.PI/3,Math.PI+4*Math.PI/3];
 	var zone=1;
-	var runner = document.getElementById("runner");
+	var runner = document.getElementById("swim");
 	var flag = document.getElementById("flag");
 	if (canvas.getContext){
 		var ctx = canvas.getContext('2d');
@@ -124,7 +124,7 @@ $(document).ready(function(){
 						if (ukey==key)
 						{
 							console.log(ukey);
-							deg+=0.4;
+							deg+=0.2;
 							ukey='';
 						}
 						if((ukey.length>1)&&(ukey!=key.substring(0,ukey.length))){
@@ -137,7 +137,7 @@ $(document).ready(function(){
 						console.log(ukey);
 						if (ukey==key)
 						{
-							deg+=0.4;
+							deg+=0.2;
 						}
 						else
 						{
@@ -146,7 +146,6 @@ $(document).ready(function(){
 						ukey='';
 					}
 				}
-				else if(e.which==13){deg+=0.4;}
 				display_key='';
 				for (i=0;i<ukey.length;i++)
 				{
@@ -161,10 +160,10 @@ $(document).ready(function(){
 					check_point=check_point+2*Math.PI/3;
 					zone+=1;
 					if(zone==2){
-						runner = document.getElementById("swim");
+						runner = document.getElementById("cycle");
 					}
 					else if(zone==3){
-						runner = document.getElementById("cycle");
+						runner = document.getElementById("runner");
 					}
 					else if(zone==4){
 						completed=true;
